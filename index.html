@@ -1,0 +1,72 @@
+<html>
+    <script>
+        let playerChoice;
+        let pcChoice;
+
+        function main(){
+            playerNRand();
+            computerRand();
+            playRound(pcChoice, playerChoice);
+        }
+
+        function computerRand(){
+            let numRand = Math.random();
+            if (numRand <= 0.33){
+                pcChoice = "rock";
+            }else if (numRand >= 0.67){
+                pcChoice = "paper";
+            }else{
+                pcChoice = "scissors";
+            }
+            console.log(pcChoice);
+            return pcChoice;
+        }
+
+        function playerNRand(){
+            playerChoice = window.prompt("What do you choose?", "Rock, Paper or Scissors?").toLowerCase();
+            return playerChoice;
+        }
+
+        function playRound(pcChoice, playerChoice){
+            switch(playerChoice){
+
+                case "rock":
+                if (pcChoice == "scissors"){
+                    console.log("Player wins with rock against scissors");
+                }else if(pcChoice == "paper"){
+                    console.log("PC wins with paper against rock");
+                }else{
+                    console.log("We have a tie with rock");
+                }
+                break;
+
+                case "paper":
+                if (pcChoice == "scissors"){
+                    console.log("PC wins with scissors against paper");
+                }else if(pcChoice == "paper"){
+                    console.log("We have a tie with paper");
+                }else{
+                    console.log("Player wins with paper against rock");
+                }
+                break;
+
+                case "scissors":
+                if (pcChoice == "scissors"){
+                    console.log("We have a tie with scissors");
+                }else if(pcChoice == "paper"){
+                    console.log("Player wins with scissors against paper");
+                }else{
+                    console.log("PC wins with rock against scissors");
+                }
+                break;
+
+
+            }
+
+
+        }
+
+        main();
+
+    </script>
+</html>
